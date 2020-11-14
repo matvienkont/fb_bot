@@ -42,7 +42,13 @@ def process_msg(message_data):
                 i += 1
             respond_message(sender_id, response)
         elif 'help' in sub_command:
-            HELP_RESPONSE = f"Available commands:\n ```\n/new\n```\n - report issue \n ```\n/all\n```\n - get all your reports\n \n ```\n/help\n```\n - to get command list\n \n```\n/examples\n```\n - get usage examples"
+            HELP_RESPONSE = f"Available commands:" \
+                            f"\n ```\n/new\n```\n - report issue " \
+                            f"\n ```\n/all\n```\n - get all your reports\n " \
+                            f"\n ```\n/help\n```\n - to get command list\n " \
+                            f"\n```\n/examples\n```\n - get usage examples" \
+                            f"\n```\n/get (status here)\n```\n - get reports with a specific status\n" \
+                            f"Available statuses: _closed_, _review_, _progress_, _completed_"
             respond_message(sender_id, HELP_RESPONSE)
         elif 'examples' in sub_command:
             HELP_RESPONSE = f"Example messages:\n\n```\n/new I would like to say that ...\n```\nOR```\n/new \nI would like to say that ...\n```\n \n```\n/all\n```"
