@@ -23,3 +23,5 @@ class Message(models.Model):
     )
     author_id = models.CharField(max_length=50, blank=False)
     author = models.CharField(max_length=30, unique=False, blank=True)
+    response_message = models.TextField(blank=True, unique=False)
+    message_id = models.CharField(max_length=50)

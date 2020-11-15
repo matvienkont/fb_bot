@@ -29,7 +29,7 @@ def process_msg(message_data):
 
             message_itself = re.split(r'[ \n]', message_itself, 1)
             print(message_itself)
-            save_message(message_itself[1], model_date, sender_id, author)
+            save_message(message_itself[1], model_date, sender_id, author, message_id)
             NEW_REPORT_RESPONSE = f"Your report has been taken for consideration."
             respond_message(sender_id, NEW_REPORT_RESPONSE)
         elif 'all' in sub_command:
