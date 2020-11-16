@@ -1,3 +1,9 @@
 build:
   docker:
     fbbot: Dockerfile
+run:
+  fbbot: gunicorn hello_django.wsgi:application --bind 0.0.0.0:$PORT
+release:
+  fbbot: web
+  command:
+    - python manage.py collectstatic --noinput
