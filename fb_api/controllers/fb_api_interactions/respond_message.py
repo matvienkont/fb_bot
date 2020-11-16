@@ -1,4 +1,5 @@
 import requests
+import os
 
 def respond_message(sender_id, message_text):
     data = {
@@ -9,7 +10,9 @@ def respond_message(sender_id, message_text):
     }
 
     headers = {'Content-type': 'application/json'}
+
+    ACCESS_TOKEN = os.environ['ACCESS_TOKEN']
     r = requests.post(
-        'https://graph.facebook.com/v8.0/me/messages?access_token=EAAD1ZBiA2cHkBAFNZC7ZBCfi0Ko06jBVvqWf6ET9XuVr2rKvRiYym0ELDfVb6QfLPdDDooUMLlCZCTqPWdhp0MupMhnGnxzWg0FQsyk0lB55uyacCrVB50TACvfaMJWAc7lpBy6quUQO9vIoqAenvL15Bd0nPouEg9hbkItJLpXfEczTrbNg2s9VxZA5DliUZD',
+        f'https://graph.facebook.com/v8.0/me/messages?access_token={ACCESS_TOKEN}',
         json=data,
         headers=headers)

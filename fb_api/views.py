@@ -1,20 +1,19 @@
 import json
+import os
 from django.utils.decorators import method_decorator
 from django.views.decorators.csrf import csrf_exempt
 
 from django.http import HttpResponse
 from django.views import generic
 
-
-from .controllers.db_interactions.save_message import save_message
-from .controllers.fb_api_interactions.respond_message import respond_message
 from .controllers.msg_processing.process_msg import process_msg
 
 
 class SomeView(generic.View):
 
     def get(self, request):
-        if self.request.GET["hub.verify_token"] == "mraA3R3JDTOj8nXXoY8a9D8rPFo1SmWI":
+        WEBHOOK_SECRET = os.environ['WEBHOOK_SECRET']
+        if self.request.GET["hub.verify_token"] == WEBHOOK_SECRET:
             return HttpResponse(self.request.GET["hub.challenge"])
         else:
             return HttpResponse("Invalid token")

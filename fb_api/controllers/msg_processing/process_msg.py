@@ -20,21 +20,18 @@ def process_msg(message_data):
     message_itself = message_data["message"]["text"]
     author = get_author(message_id)
 
-    KEYWORDS_REGEX = r'^(\/new\s+)|(\/all*)|(\/help*)|(\/examples*)|(\/get*)'
+    KEYWORDS_REGEX = r'^(\/new\s+)|^(\/all\s*)|^(\/help\s*)|^(\/examples\s*)|^(\/get\s*)'
     match = re.match(KEYWORDS_REGEX, message_itself)
 
     if match:
         sub_command = match.group()
         if 'new' in sub_command:
-
             message_itself = re.split(r'[ \n]', message_itself, 1)
-            print(message_itself)
             save_message(message_itself[1], model_date, sender_id, author, message_id)
             NEW_REPORT_RESPONSE = f"Your report has been taken for consideration."
             respond_message(sender_id, NEW_REPORT_RESPONSE)
         elif 'all' in sub_command:
             results = get_issues_by_userid(sender_id)
-            print(results)
             response = ''
             i = 1
             for message in results:
@@ -80,9 +77,6 @@ def process_msg(message_data):
             else:
                 response = f"Not valid status"
                 respond_message(sender_id, response)
-
-
-
     else:
         COMMAND_NOT_FOUND = f"Couldn't find your command, type \n```\n/help\n```\n to get all available commands"
         respond_message(sender_id, COMMAND_NOT_FOUND)

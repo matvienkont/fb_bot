@@ -1,1 +1,6 @@
 access_token
+.env
+fb_api/__pycache__
+fb_bot/__pycache__
+fb_api/migrations/__pycache__
+venv

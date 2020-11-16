@@ -1,12 +1,15 @@
 import facebook
-
+import os
 
 def get_author(message_id):
     author = ''
-    graph = facebook.GraphAPI(access_token="EAAD1ZBiA2cHkBAFNZC7ZBCfi0Ko06jBVvqWf6ET9XuVr2rKvRiYym0ELDfVb6QfLPdDDooUMLlCZCTqPWdhp0MupMhnGnxzWg0FQsyk0lB55uyacCrVB50TACvfaMJWAc7lpBy6quUQO9vIoqAenvL15Bd0nPouEg9hbkItJLpXfEczTrbNg2s9VxZA5DliUZD",
+    ACCESS_TOKEN = os.environ['ACCESS_TOKEN']
+    APP_ID = os.environ['APP_ID']
+
+    graph = facebook.GraphAPI(access_token=ACCESS_TOKEN,
                               version="2.12")
 
-    message = graph.get_object(id="105809648005519", fields="conversations{messages{from{name}}}")
+    message = graph.get_object(id=APP_ID, fields="conversations{messages{from{name}}}")
 
     for conversation_data in message["conversations"]["data"]:
         for message_data in conversation_data["messages"]["data"]:
