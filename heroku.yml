@@ -1,6 +1,8 @@
 build:
   docker:
     fbbot: Dockerfile
+run:
+  fbbot: gunicorn fb_bot.wsgi:application --bind 0.0.0.0:$PORT
 release:
   image: fbbot
   command:
