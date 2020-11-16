@@ -30,7 +30,7 @@ ALLOWED_HOSTS = [
     'fc9d6ec81f19.ngrok.io',
     'localhost',
     '127.0.0.1',
-    'dry-garden-82492.herokuapp.com'
+    'quiet-ridge-39022.herokuapp.com'
 ]
 
 

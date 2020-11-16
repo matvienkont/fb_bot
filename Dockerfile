@@ -16,14 +16,11 @@ RUN mkdir ../db
 
 COPY ./db.sqlite3 ../db/.
 
-# collect static files
-RUN python3 manage.py collectstatic --noinput
 RUN chmod 777 ../db && chmod 777 ../db/db.sqlite3
 
 RUN adduser -D matari
 USER matari
 
 COPY .env .
-CMD source .env && echo $SETTINGS_SECRET_KEY && gunicorn fb_bot.wsgi:application --bind 0.0.0.0:$PORT
 
 
