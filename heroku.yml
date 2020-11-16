@@ -4,6 +4,6 @@ build:
 run:
   fbbot: gunicorn fb_bot.wsgi:application --bind 0.0.0.0:$PORT
 release:
-  fbbot: web
+  image: fbbot
   command:
-    - python manage.py collectstatic --noinput
+    - python3 manage.py collectstatic --noinput
