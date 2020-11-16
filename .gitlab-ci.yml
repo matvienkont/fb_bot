@@ -1,5 +1,5 @@
 variables:
-  HEROKU_APP_NAME: dry-garden-82492
+  HEROKU_APP_NAME: quiet-ridge-39022
 
 stages:
   - deploy
