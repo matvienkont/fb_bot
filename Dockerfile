@@ -22,6 +22,3 @@ RUN adduser -D matari
 USER matari
 
 
-COPY .env .
-
-
