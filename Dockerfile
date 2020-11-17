@@ -24,6 +24,4 @@ USER matari
 
 COPY .env .
 
-RUN . .env
-
 
