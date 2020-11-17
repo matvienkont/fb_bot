@@ -22,6 +22,6 @@ RUN adduser -D matari
 USER matari
 
 COPY .env .
-RUN /bin/bash -c "source .env"
+RUN /bin/sh -c "source .env"
 
 
