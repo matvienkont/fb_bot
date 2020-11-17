@@ -21,7 +21,10 @@ RUN chmod 777 ../db && chmod 777 ../db/db.sqlite3
 RUN adduser -D matari
 USER matari
 
+
 COPY .env .
-RUN /bin/sh -c "source .env"
+
+SHELL ["/bin/bash", "-c"]
+RUN source .env
 
 
