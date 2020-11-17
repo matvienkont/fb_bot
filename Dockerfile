@@ -24,7 +24,6 @@ USER matari
 
 COPY .env .
 
-SHELL ["/bin/bash", "-c"]
-RUN source .env
+RUN . .env
 
 
