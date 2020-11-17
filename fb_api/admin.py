@@ -12,7 +12,6 @@ class ResponseForm(forms.ModelForm):
             FINAL_MESSAGE_RESPONSE = f"```\n{user_message}\n```\n\n{input}"
             respond_message(author_id, FINAL_MESSAGE_RESPONSE)
 
-
     def save(self, commit=True):
         response_message = self.cleaned_data.get('response_message', None)
 
